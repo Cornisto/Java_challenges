@@ -1,0 +1,19 @@
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class Kata
+{
+  public static String expandedForm(int num)
+    {
+        return IntStream.range(0, String.valueOf(num).length())
+                .mapToObj(x -> String.valueOf( Character.getNumericValue(String.valueOf(num).charAt(x) ) * (int)Math.pow(10, String.valueOf(num).substring(x).length()-1)))
+                .filter(x -> !x.equals("0"))
+                .collect(Collectors.joining(" + "));
+    }
+}
+
+/* Instructions:
+You will be given a number and you will need to return it as a string in Expanded Form. For example:
+Kata.expandedForm(12); # Should return "10 + 2"
+Kata.expandedForm(42); # Should return "40 + 2"
+Kata.expandedForm(70304); # Should return "70000 + 300 + 4" */

@@ -1,0 +1,16 @@
+public class NumberPalindrome {
+    public static boolean isPalindrome(int number){
+    int x = Math.abs(number);
+    int result = 0;
+    do {
+        int mod = x % 10;  
+        result += mod;
+        number /= 10;
+        result *= 10;       
+    } while (x >= 1);
+    if (result == Math.abs(x)){
+        return true;
+    }
+    return false;
+    }
+}

@@ -1,0 +1,25 @@
+public class Solution
+{
+    public static String jumpingNumber(int number)
+    {
+        if(number / 10 < 1){
+          return "Jumping!!";
+        }
+        if(number <= 0){
+          return "Not!!";
+        }
+        
+        int temp;
+        do {
+          temp = number % 10;
+          if((temp - (number / 10) % 10 == 0 || temp - (number / 10) % 10 == 1 || temp - (number / 10) % 10 == -1)){
+            return "Jumping!!";
+          }
+          number /= 10;
+        } while (number > 1);
+        return "Not!!";
+    }
+}
+
+//Checking if number is a jumping number
+
